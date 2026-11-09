@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BioVez: controle de acesso por digital para Windows</title>
+<meta name="description" content="BioVez identifica pessoas pela impressão digital, aplica as regras de entrada e registra cada acesso. Para Windows 10 e 11.">
+<meta name="theme-color" content="#0b5a27">
+<link rel="icon" type="image/png" href="img/icone.png">
+<style>
+:root{
+  color-scheme:light dark;
+  --bg:#f6f7f6;--surface:#fff;--surface2:#eef1ee;--line:#dfe3df;--text:#1b1f1c;--muted:#5d655f;
+  --accent:#138a36;--accent-deep:#0e722c;--accent-soft:#e2f2e5;--on-accent:#fff;
+  --logo-dark:#0b5a27;--logo-bright:#22b33a;--logo-door:#0b5a27;--logo-edge:#3cc63f;--logo-word:#0b4f24;
+  --shadow:0 18px 50px rgba(11,60,30,.12);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#161816;--surface:#1f2220;--surface2:#272b28;--line:#343934;--text:#eef2ef;--muted:#b4bcb6;
+  --accent:#5fd27a;--accent-deep:#4cc066;--accent-soft:#1f3a26;--on-accent:#06240f;
+  --logo-dark:#39a456;--logo-bright:#4fd062;--logo-door:#145f2d;--logo-edge:#4fd062;--logo-word:#eaf6ec;
+  --shadow:0 18px 50px rgba(0,0,0,.45);
+}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.6 "Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,sans-serif;color:var(--text);background:var(--bg)}
+a{color:var(--accent)}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand svg{width:36px;height:36px}
+.word{font:700 24px/1 "Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;letter-spacing:-.4px}
+.word b{color:var(--logo-word)}.word span{color:var(--logo-bright);margin-left:-1px}
+nav{display:flex;gap:22px}
+nav a{color:var(--muted);text-decoration:none;font-size:15px}
+nav a:hover{color:var(--text)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:48px;align-items:center;padding:64px 0 56px}
+h1{font:700 clamp(34px,5vw,52px)/1.08 "Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;letter-spacing:-1.2px;margin:0 0 18px}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{font-size:19px;color:var(--muted);margin:0 0 28px;max-width:520px}
+.download{display:inline-flex;align-items:center;gap:12px;background:var(--accent);color:var(--on-accent);text-decoration:none;font-weight:600;font-size:18px;padding:16px 26px;border-radius:10px;box-shadow:0 6px 20px color-mix(in srgb,var(--accent) 35%,transparent);transition:background .15s,transform .15s}
+.download:hover{background:var(--accent-deep);transform:translateY(-1px)}
+.download svg{width:22px;height:22px}
+.meta{margin-top:14px;font-size:14px;color:var(--muted)}
+.meta a{color:var(--muted)}
+.shot{border-radius:12px;border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden}
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font:700 30px/1.2 "Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;letter-spacing:-.5px;margin:0 0 10px}
+.sub{color:var(--muted);margin:0 0 32px;max-width:640px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px}
+.card svg{width:28px;height:28px;color:var(--accent);margin-bottom:10px}
+.card h3{margin:0 0 6px;font-size:17px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+ol.steps{margin:0;padding:0;list-style:none;counter-reset:s}
+ol.steps li{counter-increment:s;position:relative;padding:0 0 18px 48px}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:-2px;width:32px;height:32px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:700}
+ul.req{margin:0;padding-left:20px}
+ul.req li{margin-bottom:8px}
+.note{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:14px 16px;font-size:15px;color:var(--muted);margin-top:18px}
+.creator{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.avatar{width:72px;height:72px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:700;font-size:24px}
+.links{display:flex;gap:10px;flex-wrap:wrap}
+.links a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:9px 14px;font-size:15px}
+.links a:hover{border-color:var(--accent)}
+.links svg{width:18px;height:18px}
+code{font-family:"Cascadia Mono",Consolas,monospace;font-size:13px;overflow-wrap:anywhere}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:14px}
+footer a{color:var(--muted)}
+svg.i{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;padding:40px 0}
+  .grid{grid-template-columns:1fr 1fr}
+  .cols{grid-template-columns:1fr}
+  nav{display:none}
+}
+@media (max-width:560px){.grid{grid-template-columns:1fr}.download{width:100%;justify-content:center}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="logo" viewBox="0 0 64 64">
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 41 C7 22 18 9 31 9 C41 9 48 15 48 23 V56" style="stroke:var(--logo-dark)" stroke-width="4.6"/>
+    <path d="M9.5 50 C11 32 20 17 31 17 C36 17 39.5 19 41.5 22" style="stroke:var(--logo-bright)" stroke-width="3.6"/>
+    <path d="M15 56 C16 40 22 25 31 25 C32.5 25 34 25.4 35.2 26.2" style="stroke:var(--logo-bright)" stroke-width="3.6"/>
+    <path d="M21.5 59 C22 47 24.5 37 28 33.5" style="stroke:var(--logo-bright)" stroke-width="3.6"/>
+  </g>
+  <path d="M27.5 33 L43.6 25.2 V53.4 L27.5 60.6 Z" style="fill:var(--logo-door);stroke:var(--logo-edge)" stroke-width="2.6" stroke-linejoin="round"/>
+  <path d="M31.4 44.6 L34.4 47.7 L39.6 40.4" fill="none" style="stroke:#fff" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/>
+  <g style="stroke:var(--logo-bright)" stroke-width="3.2" stroke-linecap="round"><path d="M53.5 31.5 L58 27.8"/><path d="M54 38 H60"/><path d="M53.5 44.5 L58 48.2"/></g>
+</symbol>
+</defs></svg>
+
+<header><div class="wrap bar">
+  <a class="brand" href="#" aria-label="BioVez"><svg><use href="#logo"/></svg><span class="word"><b>Bio</b><span>Vez</span></span></a>
+  <nav><a href="#recursos">Recursos</a><a href="#requisitos">Requisitos</a><a href="#instalar">Como instalar</a><a href="#criador">Criador</a></nav>
+</div></header>
+
+<main>
+<div class="wrap hero">
+  <div>
+    <h1>Controle de acesso <em>pela digital</em>, direto no Windows.</h1>
+    <p class="lead">O BioVez identifica a pessoa pela impressão digital, confere as regras de entrada e registra cada acesso. Tudo fica no seu computador.</p>
+    <a class="download" id="download" href="https://github.com/SrTob/BioVez-download/releases/download/v1.2.0/BioVez-Setup-1.2.0.exe">
+      <svg class="i" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5"/><path d="M4 17v4h16v-4"/></svg>
+      <span id="downloadText">Baixar o BioVez 1.2.0</span>
+    </a>
+    <p class="meta">Windows 10 e 11 (64 bits) · <span id="size">48 MB</span> · <a href="https://github.com/SrTob/BioVez-download/releases">todas as versões</a><br>
+    SHA-256: <code id="sha">968f9bd33692c5ee8e7aee4f2e63ba97f7dc9c693206170e544f08728e7de127</code></p>
+  </div>
+  <img class="shot" src="img/leitor-escuro.png" width="1366" height="900" alt="Tela do leitor biométrico do BioVez, com o status do leitor, o cadastro de digital e os últimos acessos">
+</div>
+
+<section id="recursos"><div class="wrap">
+  <h2>O que o BioVez faz</h2>
+  <p class="sub">Feito para portarias, academias, escritórios e qualquer lugar que controla a entrada de pessoas cadastradas.</p>
+  <div class="grid">
+    <div class="card"><svg class="i" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 0-1 1c0 3.5-.5 6.6-2 9"/><path d="M14 12c0 4-.7 7.3-2 10"/><path d="M8 14c0 2-.3 3.9-1 5.5"/><path d="M17 14c0 2.8-.3 4.8-.9 6.5"/><path d="M5 12v-1a7 7 0 0 1 14 0v2"/><path d="M8 11a4 4 0 0 1 8 0v1"/><path d="M3 11a9 9 0 0 1 18 0v2"/></svg><h3>Identificação pela digital</h3><p>A pessoa põe o dedo no leitor e o BioVez encontra o cadastro na hora, entre todas as digitais registradas.</p></div>
+    <div class="card"><svg class="i" viewBox="0 0 24 24"><path d="m12 2 8 4v6c0 5-3 8-8 10-5-2-8-5-8-10V6z"/><path d="m9 12 2 2 4-4"/></svg><h3>Regras de entrada</h3><p>Bloqueia cadastro suspenso ou pendente, plano vencido, entrada fora do horário e leitura repetida.</p></div>
+    <div class="card"><svg class="i" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><h3>Cadastro completo</h3><p>Usuários com plano, validade e situação. Cada dedo é lido 3 vezes para um cadastro confiável.</p></div>
+    <div class="card"><svg class="i" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 6-7"/></svg><h3>Histórico e relatórios</h3><p>Todas as entradas e tentativas, horários de pico, entradas por dia e exportação para Excel (CSV).</p></div>
+    <div class="card"><svg class="i" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg><h3>Backup automático</h3><p>Cópias do banco de dados na pasta que você escolher, inclusive uma pasta do Google Drive ou do OneDrive.</p></div>
+    <div class="card"><svg class="i" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><h3>Privacidade</h3><p>Nada é enviado à internet. A digital vira um modelo matemático; a imagem do dedo não é guardada.</p></div>
+  </div>
+</div></section>
+
+<section id="requisitos"><div class="wrap cols">
+  <div>
+    <h2>Requisitos</h2>
+    <ul class="req">
+      <li>Windows 10 ou 11, 64 bits.</li>
+      <li>Leitor de digital USB com <strong>driver do Windows (WBF)</strong>, que aparece em <em>Gerenciador de Dispositivos › Dispositivos biométricos</em>.</li>
+      <li>Permissão de administrador para instalar. O BioVez abre como administrador porque o Windows exige isso para entregar a imagem da digital.</li>
+    </ul>
+    <p class="note">Sensores de digital de notebook (Windows Hello) normalmente não funcionam: eles comparam a digital dentro do próprio chip e não liberam a imagem.</p>
+  </div>
+  <div id="instalar">
+    <h2>Como instalar</h2>
+    <ol class="steps">
+      <li><strong>Baixe</strong> o instalador acima.</li>
+      <li><strong>Abra</strong> o arquivo e confirme o aviso de administrador. Se aparecer "O Windows protegeu o computador", clique em <em>Mais informações › Executar assim mesmo</em>.</li>
+      <li>O instalador copia o programa, cria os atalhos e prepara o que o Windows precisa (WebView2 e Serviço de Biometria).</li>
+      <li><strong>Conecte o leitor</strong>, abra o BioVez e cadastre os usuários.</li>
+    </ol>
+  </div>
+</div></section>
+
+<section id="criador"><div class="wrap">
+  <h2>Criador</h2>
+  <div class="creator">
+    <span class="avatar">MT</span>
+    <div>
+      <p style="margin:0 0 10px"><strong>Miguel Tobias</strong>, criador e desenvolvedor do BioVez.</p>
+      <div class="links">
+        <a href="https://github.com/SrTob" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>GitHub</a>
+        <a href="https://www.linkedin.com/in/miguel-tobias-482a06401/" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+        <a href="https://www.instagram.com/kk.tob/" rel="noopener"><svg class="i" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.4A4 4 0 1 1 12.6 8 4 4 0 0 1 16 11.4z"/><path d="M17.5 6.5h.01"/></svg>Instagram</a>
+      </div>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  © 2026 Miguel Tobias. Todos os direitos reservados. BioVez é software proprietário: o uso é regido pela <a href="https://github.com/SrTob/BioVez-download/blob/main/LICENSE">licença</a>. Componentes de terceiros: <a href="https://github.com/SrTob/BioVez-download/blob/main/THIRD-PARTY-NOTICES.md">avisos e licenças</a>.
+</div></footer>
+
+<script>
+// Mantém o botão apontando para a versão mais recente publicada.
+fetch('https://api.github.com/repos/SrTob/BioVez-download/releases/latest')
+  .then(r => r.ok ? r.json() : null)
+  .then(rel => {
+    if (!rel || !rel.assets) return;
+    const setup = rel.assets.find(a => /^BioVez-Setup-.*\.exe$/i.test(a.name));
+    if (!setup) return;
+    document.getElementById('download').href = setup.browser_download_url;
+    document.getElementById('downloadText').textContent = 'Baixar o BioVez ' + rel.tag_name.replace(/^v/, '');
+    document.getElementById('size').textContent = Math.round(setup.size / 1048576) + ' MB';
+    const m = /SHA-256[^0-9a-f]*([0-9a-f]{64})/i.exec(rel.body || '');
+    if (m) document.getElementById('sha').textContent = m[1];
+  })
+  .catch(() => { });
+</script>
+</body>
+</html>

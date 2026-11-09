@@ -1,0 +1,61 @@
+LICENÇA DE USO PROPRIETÁRIA DO BIOVEZ
+
+Copyright (c) 2026 Miguel Tobias. Todos os direitos reservados.
+
+1. TITULARIDADE
+O BioVez, incluindo seu código-fonte, código-objeto, interface, textos,
+documentação e versões futuras (o "Software"), é de titularidade exclusiva
+de Miguel Tobias (o "Titular"), protegido pela Lei nº 9.609/1998, pela
+Lei nº 9.610/1998 e pelos tratados internacionais de direito autoral.
+Nenhum direito de propriedade sobre o Software é transferido por esta licença.
+
+2. O QUE NÃO É PERMITIDO SEM AUTORIZAÇÃO ESCRITA DO TITULAR
+Ressalvados os usos que a lei permite independentemente de autorização
+(art. 6º da Lei nº 9.609/1998), é proibido a terceiros:
+  a) copiar o código-fonte ou o código-objeto, no todo ou em parte;
+  b) distribuir, publicar, alugar, emprestar, ceder ou disponibilizar o
+     Software ou seu instalador por qualquer meio;
+  c) modificar, adaptar, traduzir ou criar obras derivadas do Software;
+  d) vender, sublicenciar ou explorar comercialmente o Software;
+  e) fazer engenharia reversa, descompilar ou desmontar o Software, salvo
+     quando a lei expressamente permitir;
+  f) remover ou alterar avisos de direitos autorais, de titularidade ou de
+     licença, do Titular ou de terceiros.
+
+3. USO DO PROGRAMA INSTALADO
+Quem obtiver o instalador do BioVez pelos canais oficiais do Titular recebe
+uma licença pessoal, não exclusiva, intransferível e revogável para instalar
+e usar o Software em seus próprios computadores, para controle de acesso do
+próprio estabelecimento. Preço, prazo, quantidade de instalações e demais
+condições comerciais podem ser definidos em contrato específico com o
+Titular, que prevalece sobre esta cláusula.
+
+4. COMPONENTES DE TERCEIROS
+O Software contém componentes de terceiros, listados no arquivo
+THIRD-PARTY-NOTICES.md e na pasta "licenses" do programa instalado. Esses
+componentes continuam regidos pelas licenças dos seus respectivos autores.
+Esta licença não restringe nem altera os direitos concedidos por essas
+licenças, nem se sobrepõe a elas.
+
+5. DADOS PESSOAIS E BIOMÉTRICOS
+O Software guarda os dados no computador onde é instalado. Quem o utiliza
+para cadastrar pessoas é o controlador desses dados e responde pelo seu
+tratamento conforme a Lei nº 13.709/2018 (LGPD), incluindo a obtenção das
+bases legais e dos consentimentos necessários para dados biométricos.
+
+6. GARANTIA E RESPONSABILIDADE
+O Software é fornecido no estado em que se encontra. Na extensão máxima
+permitida pela lei, o Titular não garante que o Software atenda a uma
+finalidade específica nem responde por danos indiretos, lucros cessantes ou
+perda de dados decorrentes do seu uso.
+
+7. ENCERRAMENTO
+O descumprimento desta licença a encerra automaticamente, devendo o
+usuário desinstalar o Software e apagar suas cópias, sem prejuízo das
+medidas legais cabíveis.
+
+8. LEI E FORO
+Esta licença é regida pelas leis da República Federativa do Brasil. Fica
+eleito o foro do domicílio do Titular, salvo disposição legal em contrário.
+
+Pedidos de autorização e licenciamento: https://github.com/SrTob
