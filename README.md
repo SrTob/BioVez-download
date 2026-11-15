@@ -19,7 +19,7 @@ As telas mostram dados de demonstração com pessoas fictícias.
 ## Requisitos
 
 - Windows 10 ou 11, 64 bits
-- Leitor de digital USB com driver do Windows (WBF)
+- Leitor de digital USB com driver do Windows (WBF). Para o SecuGen Hamster Pro 20, o instalador do BioVez traz a opção de instalar o driver
 - Permissão de administrador para instalar
 
 Este repositório contém apenas a página de download, as imagens e os instaladores. O código-fonte do BioVez é privado.

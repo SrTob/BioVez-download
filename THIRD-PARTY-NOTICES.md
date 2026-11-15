@@ -90,6 +90,12 @@ OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN
 CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ```
 
+## Driver opcional incluído no instalador
+
+| Componente | Versão | Licença | Titular | Uso |
+|---|---|---|---|---|
+| SecuGen WBF Driver Installer for U20/UPx Series (`SgDrvSetup_WBF_U20-UPx.exe`) | 1.0.0.3 | Licença de usuário final da SecuGen (proprietária), exibida e aceita pela pessoa no próprio instalador da SecuGen | © SecuGen Corporation | Driver WBF do leitor Hamster Pro 20 e sensores U20/UPx. O instalador do BioVez só o abre se a opção for marcada, depois de conferir a assinatura digital da SecuGen Corporation. O arquivo não é alterado. |
+
 ## Componentes que o BioVez usa, mas não distribui
 
 | Componente | Situação |
